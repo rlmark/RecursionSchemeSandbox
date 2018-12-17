@@ -11,7 +11,7 @@ object Printer {
   def printSchema[T: Basis[TreeF, ?]]: Printer[T] = {
     val algebra: Algebra[TreeF, String] = Algebra {
     case StringNodeF() => "String"
-    case RepeatNode(l) => s"List[$l]"
+    case RepeatNode(_) => s"List[String]"
     case BranchF(l, r) => s"Either[$l,$r]"
     }
 

@@ -19,8 +19,8 @@ object TreeF {
     tree match {
       case Branch(l,r) => BranchF(l, r)
       // Herein lies the problem. Either stack overflow or unreachable code.
-      case _: Node => StringNodeF()
       case n: Node if n.repeats => RepeatNode(n)
+      case _: Node => StringNodeF()
     }
   }
 }
