@@ -8,7 +8,7 @@ In the spirit of Skeuomorph, we take an invariant `Tree` of strings, and read it
 
 Tree ==(Coalgebra: parse stuff)==> TreeF ==(Algebra: print stuff)==> String 
 
-Seems simple, however, there is a catch. Our original `Tree` has a boolean flag on its terminal nodes which indicates whether the `Node's` value can be repeated. Our `TreeF` schema has two types that one of these original `Nodes` can be transformed into: a `StringNodeF()` or a `RepeatNode(_)`. We'd like our RepeatNodes to be printed as a `List[String]` to represent this. 
+Seems simple, however, there is a catch! Our original `Tree` has a boolean flag on its terminal nodes which indicates whether the `Node's` value can be repeated. Our `TreeF` schema has two types that one of these original `Nodes` can be transformed into: a `StringNodeF()` or a `RepeatNode(_)`. We'd like our RepeatNodes to be printed as a `List[String]` to represent this. 
 
 ## To see what happens: 
 Run the Playground app, it will either Stack overflow or Print out an string of Eithers, with no repeated nodes represented. Switch the order of the case statement in the `fromTree` coalgebra to see the other behavior. 
