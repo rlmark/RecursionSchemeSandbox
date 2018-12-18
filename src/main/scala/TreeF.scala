@@ -34,10 +34,6 @@ object TreeF {
     case n: Node if n.repeats => RepeatNodeF(n.value)
     case n: Node => StringNodeF(n.value)
   }
-
-
-  implicit val basisExprF: Basis[TreeF, Tree] =
-    Basis.Default(embedAlgebra, fromTree)
 }
 
 
