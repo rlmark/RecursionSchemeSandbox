@@ -15,3 +15,5 @@ Run the Playground app, it will either Stack overflow or Print out an string of 
 
 ## Constraints: 
 We can't, to my knowlege, change the structure of the original `Tree`, that would be controlled by Protobuf itself. But we have free reign in other parts.  
+
+Also, the constructors of `Tree` are all private, so we can merely receive a `Tree` to parse, not create one. 
