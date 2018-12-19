@@ -11,8 +11,10 @@ object Printer {
   def apply[A](f: A => String): Printer[A] = (a: A) => f(a)
 
   val evaluateAlgebra: Algebra[TreeF, String] = Algebra {
-    case StringNodeF(_) => "String"
-    case RepeatNodeF(_) => "List[String]"
+    case PrimitiveInt() => "Int"
+    case PrimitiveString() => "String"
+    case NodeF(value) => s"$value"
+    case RepeatNodeF(value) => s"List[$value]"
     case BranchF(l, r) => s"Either[$l,$r]"
   }
 

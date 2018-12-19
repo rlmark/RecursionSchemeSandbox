@@ -5,10 +5,10 @@ import qq.droste.scheme
 object Playground extends App {
   val testTree = Branch(
     Branch(
-      Node("Hello", false),
-      Node("specialNode", true)
+      Node(Right(1), false),
+      Node(Left("specialNode"), true)
     ),
-    Node("HI", false))
+    Node(Left("HI"), false))
 
   val parseOriginalTree: Tree => Mu[TreeF] = scheme.ana(TreeF.fromTree)
 
