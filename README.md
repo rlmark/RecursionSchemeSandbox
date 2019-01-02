@@ -8,10 +8,12 @@ In the spirit of Skeuomorph, we take an invariant `Tree` of strings, and read it
 
 Tree ==(Coalgebra: parse stuff)==> TreeF ==(Algebra: print stuff)==> String 
 
-Seems simple, however, there is a catch! Our original `Tree` has a boolean flag on its terminal nodes which indicates whether the `Node's` value can be repeated. Our `TreeF` schema has two types that one of these original `Nodes` can be transformed into: a `StringNodeF()` or a `RepeatNode(_)`. We'd like our RepeatNodes to be printed as a `List[String]` to represent this. 
+Seems simple, however, there is a catch! Our original `Tree` contains important Type information that our TreeF represents in different classes of its ADT, and it also has a boolean flag on its terminal nodes which indicates whether the `Node's` value can be repeated. Our `TreeF` schema has two Node that one of these original `Nodes` can be transformed into: a `StringNodeF(a: A)` or a `RepeatNode(a: A)`. We'd like our RepeatNodes to be printed as a `List[String]` or `List[Int]` to represent this. Otherwise they should simply be a `String` or `Int`.
 
 ## To see what happens: 
 Run the Playground app, it will either Stack overflow or Print out an string of Eithers, with no repeated nodes represented. Switch the order of the case statement in the `fromTree` coalgebra to see the other behavior. 
 
 ## Constraints: 
 We can't, to my knowlege, change the structure of the original `Tree`, that would be controlled by Protobuf itself. But we have free reign in other parts.  
+
+Also, the constructors of `Tree` are all private, so we can merely receive a `Tree` to parse, not create one. 
