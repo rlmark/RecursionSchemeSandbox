@@ -1,5 +1,5 @@
-package one_of
-
+// package one_of
+//
 //import one_of.ProtoF.TMessage
 //import qq.droste.{Basis, Trans, scheme}
 //

@@ -13,7 +13,7 @@ object TreeF {
   @deriveTraverse final case class NumberedField[A](fieldNumber: Int, tpe: A) extends FieldF[A]
 
   final case class BranchF[A](left: A, right: A) extends TreeF[A]
-  final case class NodeF[A](name: String, a: FieldF[A]) extends TreeF[A]
+  @deriveTraverse final case class NodeF[A](name: String, a: FieldF[A]) extends TreeF[A]
   final case class IntF[A](age: Int) extends TreeF[A]
   final case class StringF[A](age: String) extends TreeF[A]
 
@@ -21,7 +21,7 @@ object TreeF {
     case Branch(l, r) => BranchF(l, r)
     case BoxedInt(v) => IntF(v)
     case BoxedString(v) => StringF(v)
-    case n@Node(Right(int), name, v) => NodeF(name, NumberedField(int, v))
-    case n@Node(Left(str), name, v ) => NodeF(name, NamedField(str, v))
+    case Node(Right(int), name, v) => NodeF(name, NumberedField(int, v))
+    case Node(Left(str), name, v ) => NodeF(name, NamedField(str, v))
   }
 }

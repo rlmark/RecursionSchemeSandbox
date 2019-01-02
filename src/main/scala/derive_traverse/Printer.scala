@@ -22,7 +22,7 @@ object Printer {
 
   def printSchema[T: Basis[TreeF2, ?]]: Printer[T] = Printer(scheme.cata(evaluateAlgebra))
 }
-//
+
 object BrokenPrinter {
   import derive_traverse.TreeF._
 
