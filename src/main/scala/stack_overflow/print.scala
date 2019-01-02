@@ -1,5 +1,7 @@
+package stack_overflow
+
 import qq.droste.{Algebra, Basis, scheme}
-import TreeF._
+import stack_overflow.TreeF.{BranchF, NodeF, PrimitiveInt, PrimitiveString, RepeatNodeF, _}
 
 trait Printer[A] {
   def print(a: A): String

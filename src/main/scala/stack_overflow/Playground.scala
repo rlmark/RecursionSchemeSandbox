@@ -1,5 +1,6 @@
+package stack_overflow
+
 import qq.droste.data.Mu
-import qq.droste.data.Mu._
 import qq.droste.scheme
 
 object Playground extends App {
@@ -18,3 +19,4 @@ object Playground extends App {
 
   println(res)
 }
+

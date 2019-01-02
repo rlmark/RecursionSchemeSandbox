@@ -1,3 +1,5 @@
+package stack_overflow
+
 import cats.implicits._
 import cats.{Applicative, Traverse}
 import qq.droste.Coalgebra
