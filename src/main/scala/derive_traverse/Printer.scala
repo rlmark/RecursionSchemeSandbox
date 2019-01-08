@@ -31,8 +31,8 @@ object BrokenPrinter {
   val evaluateAlgebra: Algebra[TreeF, String] = Algebra {
     case IntF(v) => s"$v"
     case StringF(v) => s"$v"
-    case NodeF(name, NamedField(n, tpe)) => s"$name id:$n age $tpe"
-    case NodeF(name, NumberedField(n, tpe)) => s"$name id:$n age ${tpe}"
+    case NodeF(name, FieldF.NamedField(n, tpe)) => s"$name id:$n age $tpe"
+    case NodeF(name, FieldF.NumberedField(n, tpe)) => s"$name id:$n age ${tpe}"
     case BranchF(l, r) => s"Branch [$l, $r]"
   }
 
